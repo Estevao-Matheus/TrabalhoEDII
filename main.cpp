@@ -72,9 +72,9 @@ int parse(string str)
     return ultimo;
 
 }
-void randomRead()
+
+void randomRead(int qtdLinha)
 {
-    int qtdLinha = 100000;
     ifstream arq;
     arq.open("ratings.csv");
     arq.seekg(0, ios::end);
