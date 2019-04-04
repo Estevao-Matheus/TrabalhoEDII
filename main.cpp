@@ -55,6 +55,52 @@ void insertionSort(int* v, int n)
     }
 }
 
+void troca(int* vet, int i, int j)
+{
+    int aux = 0;
+    aux = vet[i];
+    vet[i] = vet[j];
+    vet[j] = aux;
+}
+
+/*
+    Essa funcao pega o ultimo elemento como pivô, coloca o pivô na sua posição correta
+    no vetor ordenado, e coloca todos os menores que o pivô à esquerda do pivô e todos os maiores à direita.
+*/
+int particiona (int vet[], int low, int high)
+{
+    // pivot (Elemento a ser colocado na posição certa)
+    int pivot = vet[high];
+
+    int i = (low - 1);  // Indice do menor elemento
+
+    for (int j = low; j <= (high - 1); j++)
+    {
+        // Se o elemento atual é menor ou
+        // igual ao pivot
+        if (vet[j] <= pivot)
+        {
+            i++;    // incrementa indice do elemento menor
+            troca(vet, i, j);
+        }
+    }
+    troca(vet, i+1, high);
+    return (i + 1);
+}
+
+/* low  --> indice do começo,  high  --> indice do fim */
+void quickSort(int vet[], int low, int high)
+{
+    if (low < high)
+    {
+        /* pi é o índice de particionamento, vet[pi] está agora no lugar certo */
+        int pi = particiona(vet, low, high);
+
+        quickSort(vet, low, pi - 1);  // Antes do pi
+        quickSort(vet, pi + 1, high); // Depois do pi
+    }
+}
+
 int parse(string str)
 {
     stringstream s(str);
@@ -83,7 +129,7 @@ void randomRead(int qtdLinha)
     int aleatorio = rand()%tamanho;
     arq.seekg(aleatorio, ios::beg);
     string strAux;
-    getline(arq, strAux, '\n');//TRATAR A EXCE�AO DE CASO O CURSOR PARE NA ULTIMA LINHA
+    getline(arq, strAux, '\n');//TRATAR A EXCE�AO DE CASO O CURSOR PARE NA ULTIMA LINHA
     int cont = 0;
     if(arq.is_open())
     {
@@ -91,7 +137,7 @@ void randomRead(int qtdLinha)
         int* vetor = new int[qtdLinha];
         while(cont < qtdLinha)
         {
-            if(!arq.eof()){//PROVIS�RIO, TEMOS QUE VERIFICAR SE FUNCIONA MESMO
+            if(!arq.eof()){//PROVIS�RIO, TEMOS QUE VERIFICAR SE FUNCIONA MESMO
                 cont++;
                 cout << "teste: " << cont << endl;
                 getline(arq, str);
