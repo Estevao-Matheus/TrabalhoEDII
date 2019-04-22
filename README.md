@@ -10,3 +10,7 @@ Este documento irá servir de guia para a implementação das funcionalidades do
 - [ ] leitura de arquivo (conforme entrada) e escrita em arquivo no mesmo modelo da entrada
 
 #### Integrantes:
+- Cristiano Nascimento da Silva
+- João Victor Fam
+- Luis <Sobrenome>
+- Matheus Estevão Faria
