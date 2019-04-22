@@ -12,5 +12,5 @@ Este documento irá servir de guia para a implementação das funcionalidades do
 #### Integrantes:
 - Cristiano Nascimento da Silva
 - João Victor Fam
-- Luis <Sobrenome>
+- Luis Oliveira
 - Matheus Estevão Faria
