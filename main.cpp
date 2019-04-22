@@ -62,15 +62,33 @@ void troca(int* vet, int i, int j)
     vet[i] = vet[j];
     vet[j] = aux;
 }
-
+int mediana(int *vet, int k, int tam)
+{
+    int aux[k] = {0};
+    srand(time(NULL));
+    for(int i = 0; i < tam; i++)
+    {
+        aux[i] = rand()%tam;
+    }
+    insertionSort(vet, k);
+    if(k%2)
+    {
+        int med = (int)(k+1)/2;
+        return vet[med];
+    }
+    else
+    {
+        int meio = (int)k/2;
+        int med = (int)(vet[meio] + vet[meio-1])/2;
+        return vet[med];
+    }
+}
 /*
     Essa funcao pega o ultimo elemento como pivô, coloca o pivô na sua posição correta
     no vetor ordenado, e coloca todos os menores que o pivô à esquerda do pivô e todos os maiores à direita.
 */
-int particiona (int vet[], int low, int high)
+int particiona (int vet[], int low, int high, int pivot)
 {
-    // pivot (Elemento a ser colocado na posição certa)
-    int pivot = vet[high];
 
     int i = (low - 1);  // Indice do menor elemento
 
@@ -94,10 +112,32 @@ void quickSort(int vet[], int low, int high)
     if (low < high)
     {
         /* pi é o índice de particionamento, vet[pi] está agora no lugar certo */
-        int pi = particiona(vet, low, high);
+        int pi = particiona(vet, low, high, vet[high]);
 
         quickSort(vet, low, pi - 1);  // Antes do pi
         quickSort(vet, pi + 1, high); // Depois do pi
+    }
+}
+
+void quickSortMediana(int vet[], int low, int high, int kMediana)
+{
+    if (low < high)
+    {
+        if(kMediana > high)
+        {
+            int pi = particiona(vet, low, high, vet[high]);
+            quickSort(vet, low, pi - 1);  // Antes do pi
+            quickSort(vet, pi + 1, high); // Depois do pi
+        }
+        else
+        {
+            int med = mediana(vet, kMediana, high+1);
+            /* pi é o índice de particionamento, vet[pi] está agora no lugar certo */
+            int pi = particiona(vet, low, high, med);
+            quickSortMediana(vet, low, pi - 1, kMediana);  // Antes do pi
+            quickSortMediana(vet, pi + 1, high, kMediana); // Depois do pi
+        }
+
     }
 }
 
@@ -131,22 +171,20 @@ void randomRead(int qtdLinha)
     string strAux;
     getline(arq, strAux, '\n');//TRATAR A EXCE�AO DE CASO O CURSOR PARE NA ULTIMA LINHA
     int cont = 0;
-    if(arq.is_open())
-    {
+    if(arq.is_open()) {
         string str;
-        int* vetor = new int[qtdLinha];
-        while(cont < qtdLinha)
-        {
-            if(!arq.eof()){//PROVIS�RIO, TEMOS QUE VERIFICAR SE FUNCIONA MESMO
+        int *vetor = new int[qtdLinha];
+        while (cont < qtdLinha) {
+            if (!arq.eof()) {//PROVIS�RIO, TEMOS QUE VERIFICAR SE FUNCIONA MESMO
                 cont++;
                 cout << "teste: " << cont << endl;
                 getline(arq, str);
-                vetor[cont-1] = parse(str);
+                vetor[cont - 1] = parse(str);
                 //cout << endl;
             }
         }
         insertionSort(vetor, cont);
-    else
+    }else
     {
         cout << "Erro, arquivo nao pode ser aberto" << endl;
     }
@@ -157,9 +195,9 @@ void randomRead(int qtdLinha)
 int main()
 {
 
-    int vet[10] = {12, 8, 15, 1, 22, 9, 6, 14, 9, 10};
-    selectionSort(vet, 10);
-    for(int k = 0; k < 10; k++)
+    int vet[] = {12, 8, 15, 1, 22, 9, 6, 14, 9, 10, 423, 221, 441, 12, 3, 4, 3, 71, 846, 21};
+    quickSortMediana(vet,0,20, 5);
+    for(int k = 0; k < 20; k++)
     {
         cout << vet[k] << ", ";
     }
