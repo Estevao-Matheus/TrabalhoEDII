@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <random>
 
 using namespace std;
 
@@ -38,7 +39,7 @@ Objeto LeituraArquivo::Parse(string str)
 Objeto* LeituraArquivo::RandomRead(int qntdeLinhas, string nomeArquivo)
 {
     // Abre o arquivo, de acordo com o nome do diretório e do arquivo;
-    const string DIRETORIO = "../arquivos/";
+    const string DIRETORIO = "arquivos/";
     ifstream arq; // ifstream arq(DIRETORIO + NOME_ARQUIVO)
     arq.open(DIRETORIO + nomeArquivo);
 
@@ -47,24 +48,30 @@ Objeto* LeituraArquivo::RandomRead(int qntdeLinhas, string nomeArquivo)
         arq.seekg(0, ios::end); // pula para o final do arquivo
         int tamanho = arq.tellg(); // tamanho do arquivo TODO: descobrir unidade de medida
 
-        // vai para uma posição aleatória do arquivo e ajusta para o começo da próxima linha
-        time_t rawtime;
-        srand(time(&rawtime));
-        int aleatorio = rand()%tamanho;
-        arq.seekg(aleatorio, ios::beg);
-        string strAux;
-        getline(arq, strAux, '\n');//TRATAR A EXCE�AO DE CASO O CURSOR PARE NA ULTIMA LINHA
-
         // Cria o vetor de objetos com
         Objeto *vetor = new Objeto[qntdeLinhas];
+
         int cont = 0;
         while (cont < qntdeLinhas) {
-            if (!arq.eof()) {//PROVIS�RIO, TEMOS QUE VERIFICAR SE FUNCIONA MESMO
-                cont++;
-                string str;
-                getline(arq, str);
-                vetor[cont - 1] = Parse(str);
-            }
+            // gera um número aleatório entre 0 e o tamanho do arquivo
+            time_t rawtime;
+            srand(time(&rawtime));
+            std::mt19937 mt(time(&rawtime)+cont);
+
+            std::uniform_int_distribution<int> linear_i(1, tamanho);
+            int aleatorio = linear_i( mt );
+
+            // vai para uma posição aleatória do arquivo e ajusta para o começo da próxima linha
+            arq.seekg(aleatorio, ios::beg);
+            string strAux;
+            getline(arq, strAux, '\n');
+            if (arq.eof())
+                continue;
+
+            cont++;
+            string str;
+            getline(arq, str);
+            vetor[cont - 1] = Parse(str);
         }
         return vetor;
     }

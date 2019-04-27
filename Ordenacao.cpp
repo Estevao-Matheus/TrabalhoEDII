@@ -51,3 +51,64 @@ void Ordenacao::InsertionSort(Objeto *vet, int tamVet)
         vet[j+1] = pivo;
     }
 }
+
+void Ordenacao::QuickSort(Objeto *vet, int tamVet) {
+
+}
+
+
+
+void Ordenacao::intercala(int inicio_vet,int inicio_vet2,int fim_vet,int vet[])
+{
+    int indice_ini,indice_ini_vet_2,indice_aux;
+    int *vet_aux;
+    vet_aux = new int [fim_vet * sizeof(int)];
+    indice_ini = inicio_vet;
+    indice_ini_vet_2 = inicio_vet2;
+    indice_aux=0;
+    while(indice_ini<inicio_vet2&&indice_ini_vet_2<fim_vet)
+    {
+        if(vet[indice_ini]<=vet[indice_ini_vet_2])
+        {
+            vet_aux[indice_aux]=vet[indice_ini];
+            indice_aux++;
+            indice_ini++;
+        }else
+        {
+            vet_aux[indice_aux] = vet[indice_ini_vet_2];
+            indice_aux++;
+            indice_ini_vet_2++;
+        }
+    }
+    while(indice_ini<inicio_vet2)
+    {
+        vet_aux[indice_aux]=vet[indice_ini];
+        indice_aux++;
+        indice_ini++;
+    }
+    while(indice_ini_vet_2<fim_vet)
+    {
+        vet_aux[indice_aux] = vet[indice_ini_vet_2];
+        indice_aux++;
+        indice_ini_vet_2++;
+    }
+    for(indice_ini=inicio_vet;indice_ini<fim_vet;indice_ini++)
+    {
+        vet[indice_ini] = vet_aux[indice_ini-inicio_vet];
+    }
+    delete vet_aux;
+
+}
+
+
+int Ordenacao::mergesort(int*vetor, int inicio, int fim)
+{
+    int meio;
+    if(inicio<fim)
+    {
+        meio = (inicio+fim)/2;
+        mergesort(vetor,inicio,meio);
+        mergesort(vetor,meio+1,fim);
+        intercala(inicio,meio,fim,vetor);
+    }
+}

@@ -130,3 +130,5 @@ bin/
 obj/
 
 # End of https://www.gitignore.io/api/c++,clion+all,codeblocks
+
+arquivos/
