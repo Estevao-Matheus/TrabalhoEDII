@@ -1,10 +1,6 @@
 #include "Objeto.h"
 #include "Ordenacao.h"
 
-Ordenacao::Ordenacao() { }
-
-Ordenacao::~Ordenacao() { }
-
 void Ordenacao::BubbleSort(Objeto *vet, int tamVet)
 {
     bool troca = true;

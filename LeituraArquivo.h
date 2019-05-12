@@ -3,7 +3,7 @@
 #define TRABALHOEDII_LEITURAARQUIVO_H
 #include "Objeto.h"
 
-#include <fstream>;
+#include <fstream>
 
 using namespace std;
 

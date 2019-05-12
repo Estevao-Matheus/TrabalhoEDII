@@ -21,7 +21,7 @@ LeituraArquivo::~LeituraArquivo()
 
 LeituraArquivo::LeituraArquivo(string nomeArquivo)
 {
-
+    this->nomeArquivo = nomeArquivo;
 }
 
 Objeto LeituraArquivo::Parse(string str)
