@@ -19,6 +19,11 @@ LeituraArquivo::~LeituraArquivo()
 {
 }
 
+LeituraArquivo::LeituraArquivo(string nomeArquivo)
+{
+
+}
+
 Objeto LeituraArquivo::Parse(string str)
 {
     stringstream s(str);
@@ -36,17 +41,18 @@ Objeto LeituraArquivo::Parse(string str)
     return obj;
 }
 
-Objeto* LeituraArquivo::RandomRead(int qntdeLinhas, string nomeArquivo)
+Objeto* LeituraArquivo::RandomRead(int qntdeLinhas)
 {
     // Abre o arquivo, de acordo com o nome do diretório e do arquivo;
-    const string DIRETORIO = "arquivos/";
-    ifstream arq; // ifstream arq(DIRETORIO + NOME_ARQUIVO)
-    arq.open(DIRETORIO + nomeArquivo);
+    if(nomeArquivo.empty())
+        cout << "Erro: O nome do arquivo não foi especificado." << endl;
+    else
+        arquivo.open(DIRETORIO + nomeArquivo);
 
-    if (arq.is_open()) // verifica se o arquivo foi aberto com sucesso
+    if (arquivo.is_open()) // verifica se o arquivo foi aberto com sucesso
     {
-        arq.seekg(0, ios::end); // pula para o final do arquivo
-        int tamanho = arq.tellg(); // tamanho do arquivo TODO: descobrir unidade de medida
+        arquivo.seekg(0, ios::end); // pula para o final do arquivo
+        int tamanho = arquivo.tellg(); // tamanho do arquivo TODO: descobrir unidade de medida
 
         // Cria o vetor de objetos com
         Objeto *vetor = new Objeto[qntdeLinhas];
@@ -62,15 +68,15 @@ Objeto* LeituraArquivo::RandomRead(int qntdeLinhas, string nomeArquivo)
             int aleatorio = linear_i( mt );
 
             // vai para uma posição aleatória do arquivo e ajusta para o começo da próxima linha
-            arq.seekg(aleatorio, ios::beg);
+            arquivo.seekg(aleatorio, ios::beg);
             string strAux;
-            getline(arq, strAux, '\n');
-            if (arq.eof())
+            getline(arquivo, strAux, '\n');
+            if (arquivo.eof())
                 continue;
 
             cont++;
             string str;
-            getline(arq, str);
+            getline(arquivo, str);
             vetor[cont - 1] = Parse(str);
         }
         return vetor;
@@ -79,5 +85,10 @@ Objeto* LeituraArquivo::RandomRead(int qntdeLinhas, string nomeArquivo)
     {
         cout << "Erro, arquivo nao pode ser aberto" << endl;
     }
-    arq.close();
+    arquivo.close();
+}
+
+void LeituraArquivo::SelecionaArquivo(string nomeArquivo)
+{
+    this->nomeArquivo = nomeArquivo;
 }

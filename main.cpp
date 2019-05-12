@@ -9,8 +9,8 @@ int main() {
     const int TAM_VETOR = 10;
     Objeto *obj;
 
-    LeituraArquivo entrada;
-    obj = entrada.RandomRead(TAM_VETOR, "ratings.csv");
+    LeituraArquivo arquivo("ratings.csv");
+    obj = arquivo.RandomRead(TAM_VETOR);
     Ordenacao o;
     o.QuickSortMediana(obj, TAM_VETOR);
 
