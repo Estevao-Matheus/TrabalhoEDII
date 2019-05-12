@@ -15,8 +15,19 @@ public:
     void SelectionSort(Objeto* vet, int tamVet);
     void InsertionSort(Objeto* vet, int tamVet);
     void QuickSort(Objeto* vet, int tamVet);
-    int mergesort(int* vetor, int inicio, int fim);
-    void intercala(int inicio_vet,int inicio_vet2,int fim_vet,int vet[]);
+    void QuickSortMediana(Objeto* vet, int tamVet);
+    void MergeSort(Objeto* vet, int tamVet);
+
+
+private:
+    void Intercala(Objeto *vet, int inicio ,int meio ,int fim);
+    int Particiona(Objeto *vet, int inicio, int fim, int pivot);
+    void Troca(Objeto *vet, int i, int j);
+    int MediaDe3(Objeto *vet, int inicio, int fim);
+
+    void AuxQuickSort(Objeto *vet, int inicio, int fim);
+    void AuxQuickSortMediana(Objeto *vet, int inicio, int fim);
+    void AuxMergeSort(Objeto *vet, int inicio, int fim);
 };
 
 

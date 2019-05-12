@@ -53,62 +53,159 @@ void Ordenacao::InsertionSort(Objeto *vet, int tamVet)
 }
 
 void Ordenacao::QuickSort(Objeto *vet, int tamVet) {
-
+    AuxQuickSort(vet, 0, tamVet-1);
 }
 
-
-
-void Ordenacao::intercala(int inicio_vet,int inicio_vet2,int fim_vet,int vet[])
+void Ordenacao::AuxQuickSort(Objeto *vet, int inicio, int fim)
 {
-    int indice_ini,indice_ini_vet_2,indice_aux;
-    int *vet_aux;
-    vet_aux = new int [fim_vet * sizeof(int)];
-    indice_ini = inicio_vet;
-    indice_ini_vet_2 = inicio_vet2;
-    indice_aux=0;
-    while(indice_ini<inicio_vet2&&indice_ini_vet_2<fim_vet)
+    if(inicio < fim)
     {
-        if(vet[indice_ini]<=vet[indice_ini_vet_2])
-        {
-            vet_aux[indice_aux]=vet[indice_ini];
-            indice_aux++;
-            indice_ini++;
-        }else
-        {
-            vet_aux[indice_aux] = vet[indice_ini_vet_2];
-            indice_aux++;
-            indice_ini_vet_2++;
-        }
-    }
-    while(indice_ini<inicio_vet2)
-    {
-        vet_aux[indice_aux]=vet[indice_ini];
-        indice_aux++;
-        indice_ini++;
-    }
-    while(indice_ini_vet_2<fim_vet)
-    {
-        vet_aux[indice_aux] = vet[indice_ini_vet_2];
-        indice_aux++;
-        indice_ini_vet_2++;
-    }
-    for(indice_ini=inicio_vet;indice_ini<fim_vet;indice_ini++)
-    {
-        vet[indice_ini] = vet_aux[indice_ini-inicio_vet];
-    }
-    delete vet_aux;
+        // pi é o índice de particionamento
+        int pi = Particiona(vet, inicio, fim, vet[fim].getUserID());
 
+        AuxQuickSort(vet, inicio, pi - 1); // Antes do pi
+        AuxQuickSort(vet, pi, fim); // Depois do pi
+    }
+}
+
+int Ordenacao::Particiona(Objeto *vet, int inicio, int fim, int pivot)
+{
+    int leftPtr = inicio - 1;
+    int rightPtr = fim + 1;
+    while(true)
+    {
+        while((leftPtr < fim) && (vet[++leftPtr].getUserID() < pivot))
+        { }
+        while((rightPtr > inicio) && (vet[--rightPtr].getUserID() > pivot))
+        { }
+        if(leftPtr >= rightPtr)
+            break;
+        else
+            Troca(vet, leftPtr, rightPtr);
+    }
+    return leftPtr;
+}
+
+void Ordenacao::Troca(Objeto *vet, int i, int j)
+{
+    Objeto  aux = vet[i];
+    vet[i] = vet[j];
+    vet[j] = aux;
+}
+
+void Ordenacao::QuickSortMediana(Objeto* vet, int tamVet)
+{
+    AuxQuickSortMediana(vet, 0, tamVet-1);
 }
 
 
-int Ordenacao::mergesort(int*vetor, int inicio, int fim)
+void Ordenacao::AuxQuickSortMediana(Objeto *vet, int inicio, int fim)
+{
+    int tamanho = fim - inicio + 1;
+    if(tamanho <= 3)
+        AuxQuickSort(vet, inicio, fim);
+    else
+    {
+        int media = MediaDe3(vet, inicio, fim);
+        int particao = Particiona(vet, inicio, fim, media);
+        AuxQuickSortMediana(vet, inicio, particao - 1);
+        AuxQuickSortMediana(vet, particao, fim);
+    }
+}
+
+int Ordenacao::MediaDe3(Objeto *vet, int inicio, int fim)
+{
+    int centro = (inicio + fim)/2;
+
+    if(vet[inicio].getUserID() > vet[centro].getUserID())
+        Troca(vet, inicio, centro);
+    if(vet[inicio].getUserID() > vet[fim].getUserID())
+        Troca(vet, inicio, fim);
+    if(vet[centro].getUserID() > vet[fim].getUserID())
+        Troca(vet, centro, fim);
+
+    Troca(vet, centro, fim);
+    return vet[fim].getUserID();
+}
+
+/* ---- ---- ---- ---- ---- ---- // ---- ---- ---- ----
+int particiona !!antigo!! (Objeto *vet, int low, int high, int pivot)
+{
+    int i = (low - 1);  // Indice do menor elemento
+
+    for (int j = low; j <= (high - 1); j++)
+    {
+        // Se o elemento atual é menor ou
+        // igual ao pivot
+        if (vet[j].getUserID() <= pivot)
+        {                                                                           ___
+            i++;    // incrementa indice do elemento menor                     ___ /   \
+            troca(vet, i, j);                                      ____       /   \|   |
+        }                                                        / o o \BoooOO\___/\___/
+    }                                                           /  c=   /                  particiona antigo
+    troca(vet, i+1, high);
+    return (i + 1);
+}
+*/
+
+void Ordenacao::MergeSort(Objeto *vetor, int tamVet)
+{
+    AuxMergeSort(vetor, 0, tamVet-1);
+}
+
+void Ordenacao::AuxMergeSort(Objeto *vet, int inicio, int fim)
 {
     int meio;
-    if(inicio<fim)
+    if(inicio < fim)
     {
-        meio = (inicio+fim)/2;
-        mergesort(vetor,inicio,meio);
-        mergesort(vetor,meio+1,fim);
-        intercala(inicio,meio,fim,vetor);
+        meio = (inicio + fim)/2;
+        AuxMergeSort(vet, inicio, meio);
+        AuxMergeSort(vet, meio + 1, fim);
+        Intercala(vet, inicio, meio, fim);
     }
+}
+
+void Ordenacao::Intercala(Objeto *vet, int inicio, int meio, int fim)
+{
+    int indice_inicio, indice_inicio_vet_2, indice_aux;
+    Objeto *vetor_aux;
+
+    indice_aux = 0;
+    indice_inicio = inicio;
+    indice_inicio_vet_2 = meio + 1;
+    vetor_aux = new Objeto[(fim - inicio + 1) * sizeof(int)];
+
+    while(indice_inicio < meio + 1 && indice_inicio_vet_2 < fim + 1)
+    {
+        if(vet[indice_inicio].getUserID() <= vet[indice_inicio_vet_2].getUserID())
+        {
+            vetor_aux[indice_aux] = vet[indice_inicio];
+            indice_aux++;
+            indice_inicio++;
+        }else
+        {
+            vetor_aux[indice_aux] = vet[indice_inicio_vet_2];
+            indice_aux++;
+            indice_inicio_vet_2++;
+        }
+    }
+
+    while(indice_inicio < meio + 1)
+    {
+        vetor_aux[indice_aux] = vet[indice_inicio];
+        indice_aux++;
+        indice_inicio++;
+    }
+    while(indice_inicio_vet_2 < fim + 1)
+    {
+        vetor_aux[indice_aux] = vet[indice_inicio_vet_2];
+        indice_aux++;
+        indice_inicio_vet_2++;
+    }
+
+    for(indice_inicio = inicio; indice_inicio < fim + 1; indice_inicio++)
+    {
+        vet[indice_inicio] = vetor_aux[indice_inicio - inicio];
+    }
+    delete vetor_aux;
 }
