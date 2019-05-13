@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/1513 X-MXTI/CLionProjects/Sorts/main.cpp
+iostream
+-
+stdlib.h
+-
+time.h
+-
+chrono
+-
+
