@@ -48,6 +48,32 @@ void Ordenacao::InsertionSort(Objeto *vet, int tamVet)
     }
 }
 
+void Ordenacao::ShellSort(Objeto *vet, int tamVet)
+{
+    int i, j, gap = 1;
+    Objeto auxiliar;
+    while(gap < tamVet) {
+        gap = 3*gap + 1;
+    }
+
+    while(gap > 1)
+    {
+        gap /= 3;
+        for(i = gap; i < tamVet; i++)
+        {
+            auxiliar = vet[i];
+            j = i - gap;
+            while(j >= 0 && auxiliar.getUserID() < vet[j].getUserID())
+            {
+                vet[j + gap] = vet[j];
+                j -= gap;
+            }
+            vet[j + gap] = auxiliar;
+        }
+    }
+}
+
+
 void Ordenacao::QuickSort(Objeto *vet, int tamVet) {
     AuxQuickSort(vet, 0, tamVet-1);
 }

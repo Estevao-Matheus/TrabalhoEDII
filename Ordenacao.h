@@ -14,6 +14,7 @@ public:
     static void QuickSort(Objeto* vet, int tamVet);
     static void QuickSortMediana(Objeto* vet, int tamVet);
     static void MergeSort(Objeto* vet, int tamVet);
+    static void ShellSort(Objeto* vet, int tamVet);
 
 private:
     static void Intercala(Objeto *vet, int inicio ,int meio ,int fim);
