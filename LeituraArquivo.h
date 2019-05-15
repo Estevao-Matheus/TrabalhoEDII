@@ -10,19 +10,22 @@ using namespace std;
 class LeituraArquivo {
 public:
     LeituraArquivo();
-    LeituraArquivo(string nomeArquivo);
+    LeituraArquivo(string nomeArquivoEntrada);
     ~LeituraArquivo();
 
     Objeto* RandomRead(int qntdeLinhas);
     Objeto Parse(string str);
 
+    int* LerEntrada(string nomeArquivo, int* tamVet);
+
     void SelecionaArquivo(string nomeArquivo);
+    void EscreveDesempenho(string nomeAlgoritmo, int numTrocas, int numComparacoes, double tempoExecucao);
 
 private:
     const string DIRETORIO = "arquivos/";
-    string nomeArquivo;
-    ifstream arquivo;
-
+    string nomeArquivoEntrada;
+    ifstream arquivoEntrada;
+    ofstream arquivoSaida;
 };
 
 

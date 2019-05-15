@@ -2,7 +2,7 @@
 #include "Ordenacao.h"
 #include <Chrono>
 
-int trocac,comparac;
+unsigned int trocac,comparac;
 
 void Ordenacao::troca(int *xp, int *yp)
 {
@@ -174,11 +174,12 @@ int Ordenacao::Particiona(Objeto *vet, int inicio, int fim, int pivot)
         { }
         while((rightPtr > inicio) && (vet[--rightPtr].getUserID() > pivot))
         { }
+        comparac++;
         if(leftPtr >= rightPtr)
             break;
         else
             Troca(vet, leftPtr, rightPtr);
-            trocac++;
+        trocac++;
     }
     return leftPtr;
 }
@@ -397,6 +398,6 @@ void Ordenacao::quickInsertion(Objeto* vet, int low, int high)
     auto diff = end - start;
     cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
     cout<<"Comparações: "<<comparac<<endl;
-    cout<<"Troacs: "<<trocac<<endl;
+    cout<<"Trocação: "<<trocac<<endl;
 
 }
