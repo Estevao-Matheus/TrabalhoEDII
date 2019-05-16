@@ -401,3 +401,9 @@ void Ordenacao::quickInsertion(Objeto* vet, int low, int high)
     cout<<"Trocação: "<<trocac<<endl;
 
 }
+
+auto end = chrono::steady_clock::now();
+auto diff = end - start;
+cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
+cout<<"Comparações: "<<comparac<<endl;
+cout<<"Troacs: "<<trocac<<endl;

@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <random>
+#include <Chrono>
 
 using namespace std;
 
@@ -61,14 +62,11 @@ Objeto* LeituraArquivo::RandomRead(int qntdeLinhas)
 
         int cont = 0;
         while (cont < qntdeLinhas) {
-            // gera um número aleatório entre 0 e o tamanho do arquivo
-            time_t rawtime;
-            srand(time(&rawtime));
-            std::mt19937 mt(time(&rawtime)+cont);
+            unsigned seed = std::chrono::steady_clock::now().time_since_epoch().count();
+            std::default_random_engine e(seed);
+            std::uniform_int_distribution<int> distr(0, tamanho);
 
-            std::uniform_int_distribution<int> linear_i(1, tamanho);
-            int aleatorio = linear_i( mt );
-
+            int aleatorio = distr(e);
             // vai para uma posição aleatória do arquivo e ajusta para o começo da próxima linha
             arquivoEntrada.seekg(aleatorio, ios::beg);
             string strAux;
