@@ -2,6 +2,7 @@
 #include <iostream>
 #ifndef TRABALHOEDII_ORDENACAO_H
 #define TRABALHOEDII_ORDENACAO_H
+#include <fstream>
 
 
 using namespace std;
@@ -11,11 +12,11 @@ public:
     static void BubbleSort(Objeto* vet, int tamVet);
     static void SelectionSort(Objeto* vet, int tamVet);
     static void InsertionSort(Objeto* vet, int tamVet);
-    static void QuickSort(Objeto* vet, int tamVet);
-    static void QuickSortMediana(Objeto* vet, int tamVet);
+    static void QuickSort(Objeto* vet, int tamVet, float* resultados);
+    static void QuickSortMediana(Objeto* vet, int tamVet, float* resultados);
     static void MergeSort(Objeto* vet, int esq, int dir);
     static void ShellSort(Objeto* vet, int tamVet);
-    static void quickInsertion(Objeto* vet, int low, int high);
+    static void quickInsertion(Objeto* vet, int low, int high, float* resultados);
 
 private:
     static void Intercala(Objeto *vet, int inicio ,int meio ,int fim);

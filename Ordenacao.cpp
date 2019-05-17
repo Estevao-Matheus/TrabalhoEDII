@@ -1,8 +1,10 @@
 #include "Objeto.h"
 #include "Ordenacao.h"
 #include <Chrono>
+#include <fstream>
 
 unsigned int trocac,comparac;
+ofstream f_out;
 
 void Ordenacao::troca(int *xp, int *yp)
 {
@@ -139,17 +141,22 @@ void Ordenacao::ShellSort(Objeto *vet, int tamVet)
 
 
 
-
-void Ordenacao::QuickSort(Objeto *vet, int tamVet) {
+void Ordenacao::QuickSort(Objeto *vet, int tamVet, float *resultados) {
     trocac =0;
     comparac =0;
     auto start = chrono::steady_clock::now();
-    AuxQuickSort(vet, 0, tamVet-1);
+    try {
+        AuxQuickSort(vet, 0, tamVet-1);
+    } catch(const exception& e) { }
     auto end = chrono::steady_clock::now();
     auto diff = end - start;
-    cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
-    cout<<"Comparações: "<<comparac<<endl;
-    cout<<"Troacs: "<<trocac<<endl;
+    resultados[0] = chrono::duration <double, milli> (diff).count();
+    resultados[1] = comparac;
+    resultados[2] = trocac;
+
+    //f_out << "vetor ordenado em: " << chrono::duration <double, milli> (diff).count() << " ms" << endl;
+    //f_out << "Comparações: " << comparac << endl;
+    //f_out << "Troacs: " << troca << endl;
 }
 
 void Ordenacao::AuxQuickSort(Objeto *vet, int inicio, int fim)
@@ -191,7 +198,7 @@ void Ordenacao::Troca(Objeto *vet, int i, int j)
     vet[j] = aux;
 }
 
-void Ordenacao::QuickSortMediana(Objeto* vet, int tamVet)
+void Ordenacao::QuickSortMediana(Objeto* vet, int tamVet, float* resultados)
 {
     trocac =0;
     comparac =0;
@@ -199,9 +206,9 @@ void Ordenacao::QuickSortMediana(Objeto* vet, int tamVet)
     AuxQuickSortMediana(vet, 0, tamVet-1);
     auto end = chrono::steady_clock::now();
     auto diff = end - start;
-    cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
-    cout<<"Comparações: "<<comparac<<endl;
-    cout<<"Troacs: "<<trocac<<endl;
+    resultados[0] = chrono::duration <double, milli> (diff).count();
+    resultados[1] = comparac;
+    resultados[2] = trocac;
 }
 
 
@@ -388,7 +395,7 @@ void Ordenacao::quickInsertionAux(Objeto* vet, int low, int high) //high eh o IN
     }
 }
 
-void Ordenacao::quickInsertion(Objeto* vet, int low, int high)
+void Ordenacao::quickInsertion(Objeto* vet, int low, int high, float *resultados)
 {
     trocac = 0;
     comparac =0;
@@ -396,14 +403,8 @@ void Ordenacao::quickInsertion(Objeto* vet, int low, int high)
     quickInsertionAux(vet,low,high);
     auto end = chrono::steady_clock::now();
     auto diff = end - start;
-    cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
-    cout<<"Comparações: "<<comparac<<endl;
-    cout<<"Trocação: "<<trocac<<endl;
+    resultados[0] = chrono::duration <double, milli> (diff).count();
+    resultados[1] = comparac;
+    resultados[2] = trocac;
 
 }
-
-auto end = chrono::steady_clock::now();
-auto diff = end - start;
-cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
-cout<<"Comparações: "<<comparac<<endl;
-cout<<"Troacs: "<<trocac<<endl;
