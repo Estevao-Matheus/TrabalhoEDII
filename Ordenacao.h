@@ -27,8 +27,8 @@ private:
     static void AuxQuickSort(Objeto *vet, int inicio, int fim);
     static void AuxQuickSortMediana(Objeto *vet, int inicio, int fim);
     static void AuxMergeSort(Objeto *vet, int inicio, int fim);
-    static void quickInsertionAux(Objeto* vet, int low, int high)
-    static void insertionSortAux (Objeto * vet, int low, int high)
+    static void quickInsertionAux(Objeto* vet, int low, int high);
+    static void insertionSortAux (Objeto * vet, int low, int high);
 };
 
 

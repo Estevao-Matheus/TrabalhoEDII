@@ -7,15 +7,17 @@
 
 
 class Objeto {
+private:
+    int UserID;
+    int MovieID;
+    float Rating;
+    long long int Timestamp;
 public:
     Objeto();
     Objeto(int userID, int movieID, float rating, long long int timestamp);
     ~Objeto();
     void Imprimi();
 
-private:
-    int UserID;
-public:
     int getUserID() const;
 
     void setUserID(int UserID);
@@ -32,10 +34,6 @@ public:
 
     void setTimestamp(long long int Timestamp);
 
-private:
-    int MovieID;
-    float Rating;
-    long long int Timestamp;
 };
 
 

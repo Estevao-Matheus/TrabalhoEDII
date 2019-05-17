@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <random>
+#include <Chrono>
 
 using namespace std;
 
@@ -19,9 +20,9 @@ LeituraArquivo::~LeituraArquivo()
 {
 }
 
-LeituraArquivo::LeituraArquivo(string nomeArquivo)
+LeituraArquivo::LeituraArquivo(string nomeArquivoEntrada)
 {
-    this->nomeArquivo = nomeArquivo;
+    this->nomeArquivoEntrada = nomeArquivoEntrada;
 }
 
 Objeto LeituraArquivo::Parse(string str)
@@ -44,51 +45,76 @@ Objeto LeituraArquivo::Parse(string str)
 Objeto* LeituraArquivo::RandomRead(int qntdeLinhas)
 {
     // Abre o arquivo, de acordo com o nome do diretório e do arquivo;
-    if(nomeArquivo.empty())
+    if(nomeArquivoEntrada.empty())
         cout << "Erro: O nome do arquivo não foi especificado." << endl;
     else
-        arquivo.open(DIRETORIO + nomeArquivo);
+        arquivoEntrada.open(DIRETORIO + nomeArquivoEntrada);
 
-    if (arquivo.is_open()) // verifica se o arquivo foi aberto com sucesso
+    Objeto *vetor = new Objeto[qntdeLinhas];
+
+    if (arquivoEntrada.is_open()) // verifica se o arquivo foi aberto com sucesso
     {
-        arquivo.seekg(0, ios::end); // pula para o final do arquivo
-        int tamanho = arquivo.tellg(); // tamanho do arquivo TODO: descobrir unidade de medida
+        arquivoEntrada.seekg(0, ios::end); // pula para o final do arquivo
+        int tamanho = arquivoEntrada.tellg(); // tamanho do arquivo TODO: descobrir unidade de medida
 
         // Cria o vetor de objetos com
-        Objeto *vetor = new Objeto[qntdeLinhas];
+
 
         int cont = 0;
         while (cont < qntdeLinhas) {
-            // gera um número aleatório entre 0 e o tamanho do arquivo
-            time_t rawtime;
-            srand(time(&rawtime));
-            std::mt19937 mt(time(&rawtime)+cont);
+            unsigned seed = std::chrono::steady_clock::now().time_since_epoch().count();
+            std::default_random_engine e(seed);
+            std::uniform_int_distribution<int> distr(0, tamanho);
 
-            std::uniform_int_distribution<int> linear_i(1, tamanho);
-            int aleatorio = linear_i( mt );
-
+            int aleatorio = distr(e);
             // vai para uma posição aleatória do arquivo e ajusta para o começo da próxima linha
-            arquivo.seekg(aleatorio, ios::beg);
+            arquivoEntrada.seekg(aleatorio, ios::beg);
             string strAux;
-            getline(arquivo, strAux, '\n');
-            if (arquivo.eof())
+            getline(arquivoEntrada, strAux, '\n');
+            if (arquivoEntrada.eof())
                 continue;
 
             cont++;
             string str;
-            getline(arquivo, str);
+            getline(arquivoEntrada, str);
             vetor[cont - 1] = Parse(str);
         }
-        return vetor;
+
     }
     else
     {
         cout << "Erro, arquivo nao pode ser aberto" << endl;
     }
-    arquivo.close();
+    arquivoEntrada.close();
+    return vetor;
 }
 
 void LeituraArquivo::SelecionaArquivo(string nomeArquivo)
 {
-    this->nomeArquivo = nomeArquivo;
+    this->nomeArquivoEntrada = nomeArquivo;
+}
+
+int* LeituraArquivo::LerEntrada(string nomeArquivo, int* tamVet)
+{
+    ifstream entrada;
+    entrada.open(DIRETORIO + nomeArquivo);
+    int* vet;
+    if(entrada.is_open())
+    {
+        entrada >> *tamVet;
+        vet = new int[*tamVet];
+        for(int i =0; i < *tamVet; i++)
+            entrada >> vet[i];
+    }
+    else
+    {
+        cout << "Ocorreu algum erro ao abrir o arquivo de entrada" << endl;
+    }
+    entrada.close();
+    return vet;
+}
+
+void LeituraArquivo::EscreveDesempenho(string nomeAlgoritmo, int numTrocas, int numComparacoes, double tempoExecucao)
+{
+
 }

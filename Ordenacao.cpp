@@ -1,7 +1,8 @@
 #include "Objeto.h"
 #include "Ordenacao.h"
+#include <Chrono>
 
-int trocac,comparac;
+unsigned int trocac,comparac;
 
 void Ordenacao::troca(int *xp, int *yp)
 {
@@ -25,7 +26,7 @@ void Ordenacao::BubbleSort(Objeto *vet, int tamVet)
             comparacount++;
             if(vet[j].getUserID()>vet[j+1].getUserID())
             {
-                troca(&vet[j],&vet[j+1]);
+                Troca(vet, j, j+1);
                 trocacount++;
 
             }
@@ -36,13 +37,13 @@ void Ordenacao::BubbleSort(Objeto *vet, int tamVet)
     auto end = chrono::steady_clock::now();
     auto diff = end - start;
     cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
-    cout<<"Numero de comparações;"<<comparacount<<endl;
-    cout<<"Numero de trocas;"<<trocacount<<endl;
+    cout<<"Numero de comparacoes:"<<comparacount<<endl;
+    cout<<"Numero de trocas:"<<trocacount<<endl;
 
 }
 
 
-void Ordenação::selectionsort (Objeto *vet,int tamVet)
+void Ordenacao::SelectionSort (Objeto *vet,int tamVet)
 {
     auto start = chrono::steady_clock::now();
     int i,j;
@@ -60,7 +61,7 @@ void Ordenação::selectionsort (Objeto *vet,int tamVet)
                 indicemin = j;
             }
         }
-        troca(&vet[indicemin],&vet[i]);
+        Troca(vet, indicemin, i);
         trocacount++;
     }
     auto end = chrono::steady_clock::now();
@@ -73,13 +74,13 @@ void Ordenação::selectionsort (Objeto *vet,int tamVet)
 
 
 
-void Ordenacao::InserctionSort (Objeto *vet,int tamVet)
+void Ordenacao::InsertionSort (Objeto *vet,int tamVet)
 {
     int trocacount=0;
     int comparacount=0;
     auto start = chrono::steady_clock::now();
     int i, j;
-    Objeto chave(0, 0, 0, 0);
+    Objeto chave(0, 0, 0, 0);;
     for (i = 1; i < tamVet; i++) {
         chave = vet[i];
         j = i - 1;
@@ -102,39 +103,39 @@ void Ordenacao::InserctionSort (Objeto *vet,int tamVet)
 
 void Ordenacao::ShellSort(Objeto *vet, int tamVet)
 {
-        auto start = chrono::steady_clock::now();
-        int i, j;
-        Objeto chave;
-        int comparacount=0;
-        int trocacount =0;
-        int gap = 1;
-        while(gap < tamVet)  //Calculando o gap inicial(gap eh a distancia de um indice a outro)
-        {
-            gap = 3*gap+1;
-        }
-        while ( gap > 1)
-        {
-            gap /= 3;//Atualizando gap, ate ele valer 1
-            for(i = gap; i < tamVet; i++)//Compara o elemento do indice 'j' com o elemento do indice "j+gap" em todo vetor
-            {
-                comparacount++;
-                chave = vet[i];
-                j = i - gap;
-                while (j >= 0 && chave < vet[j])//verifica se eh necessario a troca
-                {
-                    vet [j + gap] = vet[j];
-                    j -= gap;
-                    trocacount++;
-                }
-                vet [j + gap] = chave;
-            }
-        }
-        auto end = chrono::steady_clock::now();
-        auto diff = end - start;
-        cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
-        cout<<"Numero de comparações;"<<comparacount<<endl;
-        cout<<"Numero de trocas;"<<comparacount<<endl;
+    auto start = chrono::steady_clock::now();
+    int i, j;
+    Objeto chave;
+    int comparacount=0;
+    int trocacount =0;
+    int gap = 1;
+    while(gap < tamVet)  //Calculando o gap inicial(gap eh a distancia de um indice a outro)
+    {
+        gap = 3*gap+1;
     }
+    while ( gap > 1)
+    {
+        gap /= 3;//Atualizando gap, ate ele valer 1
+        for(i = gap; i < tamVet; i++)//Compara o elemento do indice 'j' com o elemento do indice "j+gap" em todo vetor
+        {
+            comparacount++;
+            chave = vet[i];
+            j = i - gap;
+            while (j >= 0 && chave.getUserID() < vet[j].getUserID())//verifica se eh necessario a troca
+            {
+                vet [j + gap] = vet[j];
+                j -= gap;
+                trocacount++;
+            }
+            vet [j + gap] = chave;
+        }
+    }
+    auto end = chrono::steady_clock::now();
+    auto diff = end - start;
+    cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
+    cout<<"Numero de comparações;"<<comparacount<<endl;
+    cout<<"Numero de trocas;"<<comparacount<<endl;
+}
 
 
 
@@ -143,7 +144,7 @@ void Ordenacao::QuickSort(Objeto *vet, int tamVet) {
     trocac =0;
     comparac =0;
     auto start = chrono::steady_clock::now();
-    AuxQuickSort(vet, 0, tamVet-1)
+    AuxQuickSort(vet, 0, tamVet-1);
     auto end = chrono::steady_clock::now();
     auto diff = end - start;
     cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
@@ -173,11 +174,12 @@ int Ordenacao::Particiona(Objeto *vet, int inicio, int fim, int pivot)
         { }
         while((rightPtr > inicio) && (vet[--rightPtr].getUserID() > pivot))
         { }
+        comparac++;
         if(leftPtr >= rightPtr)
             break;
         else
             Troca(vet, leftPtr, rightPtr);
-            trocac++;
+        trocac++;
     }
     return leftPtr;
 }
@@ -236,7 +238,6 @@ int Ordenacao::MediaDe3(Objeto *vet, int inicio, int fim)
 int particiona !!antigo!! (Objeto *vet, int low, int high, int pivot)
 {
     int i = (low - 1);  // Indice do menor elemento
-
     for (int j = low; j <= (high - 1); j++)
     {
         // Se o elemento atual é menor ou
@@ -259,7 +260,7 @@ void Ordenacao::MergeSort(Objeto *vet, int Esq, int Dir)
     trocac=0;
     comparac=0;
     auto start = chrono::steady_clock::now();
-    mergeAux(vet,Esq,Dir);
+    AuxMergeSort(vet,Esq,Dir);
     auto end = chrono::steady_clock::now();
     auto diff = end - start;
     cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
@@ -281,9 +282,9 @@ void Ordenacao::AuxMergeSort(Objeto *vet, int Esq, int Dir)
         int media = Esq+(Dir-Esq)/2;
 
         // Sort primeira e segunda metade
-        mergeAux(vet, Esq, media);
-        mergeAux(vet, media+1, Dir);
-        merge(vet, Esq, media, Dir);
+        AuxMergeSort(vet, Esq, media);
+        AuxMergeSort(vet, media+1, Dir);
+        Intercala(vet, Esq, media, Dir);
     }
 }
 
@@ -350,15 +351,14 @@ void Ordenacao::Intercala(Objeto *vet, int Esq, int media, int dir)
 
 
 
-void  Ordenacao::insertionSortAux (Objeto * vet, int low, int high)
+void  Ordenacao::insertionSortAux(Objeto * vet, int low, int high)
 {
-    //int pivo =low;
-    Objeto pivo(0,0,0,0)
+    Objeto pivo = vet[low];
     int j = low;
 
     for (int i = (low+1); i <=high; i ++)
     {
-        pivo = vet [i];
+        pivo = vet[i];
         j = i- 1 ;
         while (j>= low && vet[j].getUserID()  > pivo.getUserID())
         {
@@ -376,17 +376,16 @@ void Ordenacao::quickInsertionAux(Objeto* vet, int low, int high) //high eh o IN
     if (((high+1)-low)>10)//verificando se o tamanho do vetor eh maior que 10
     {
         // pi é o índice de particionamento, vet[pi] está agora no lugar certo
-        int pi = particiona(vet, low, high);
+        int pi = Particiona(vet, low, high, vet[high].getUserID());
 
         quickInsertionAux(vet, low, pi - 1);  // Antes do pi
         quickInsertionAux(vet, pi + 1, high); // Depois do pi
     }
     else   //se o vetor for menor que 10 elementos, usamos o insertionSort
     {
-        insertionSort(vet, low, high);
+        insertionSortAux(vet, low, high);
     }
 }
-
 
 void Ordenacao::quickInsertion(Objeto* vet, int low, int high)
 {
@@ -398,7 +397,7 @@ void Ordenacao::quickInsertion(Objeto* vet, int low, int high)
     auto diff = end - start;
     cout<<"vetor ordenado em: "<<chrono::duration <double, milli> (diff).count() << " ms" << endl;
     cout<<"Comparações: "<<comparac<<endl;
-    cout<<"Troacs: "<<trocac<<endl;
+    cout<<"Trocação: "<<trocac<<endl;
 
 }
-//-------------------------------------QuickMediana-----------------------------------------------------//
+
