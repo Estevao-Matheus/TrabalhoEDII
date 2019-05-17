@@ -79,7 +79,7 @@ void Ordenacao::InserctionSort (Objeto *vet,int tamVet)
     int comparacount=0;
     auto start = chrono::steady_clock::now();
     int i, j;
-    Objeto chave(0, 0, 0, 0);;
+    Objeto chave(0, 0, 0, 0);
     for (i = 1; i < tamVet; i++) {
         chave = vet[i];
         j = i - 1;
@@ -352,14 +352,15 @@ void Ordenacao::Intercala(Objeto *vet, int Esq, int media, int dir)
 
 void  Ordenacao::insertionSortAux (Objeto * vet, int low, int high)
 {
-    int pivo =low;
+    //int pivo =low;
+    Objeto pivo(0,0,0,0)
     int j = low;
 
     for (int i = (low+1); i <=high; i ++)
     {
         pivo = vet [i];
         j = i- 1 ;
-        while (j>= low && vet[j]  > pivo)
+        while (j>= low && vet[j].getUserID()  > pivo.getUserID())
         {
             vet [j + 1 ] = vet [j];
             j--;
@@ -400,3 +401,4 @@ void Ordenacao::quickInsertion(Objeto* vet, int low, int high)
     cout<<"Troacs: "<<trocac<<endl;
 
 }
+//-------------------------------------QuickMediana-----------------------------------------------------//
