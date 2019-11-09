@@ -1,0 +1,633 @@
+# depslib dependency file v1.0
+1562722439 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\arvorevp.cpp
+	"ArvoreVP.h"
+	"Usuario.h"
+
+1562722099 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\arvorevp.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562722487 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\usuario.h
+	<vector>
+
+1562738224 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\leituraarquivo.cpp
+	"LeituraArquivo.h"
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<random>
+	<Chrono>
+	<vector>
+	<algorithm>
+	"usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562735662 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\leituraarquivo.h
+	<string>
+	"Usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562706804 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\usuario.cpp
+	"Usuario.h"
+
+1562706804 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\arvoreb.cpp
+	"ArvoreB.h"
+
+1562706804 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\arvoreb.h
+	"NoArvoreB.h"
+
+1562706804 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\noarvoreb.h
+	"Usuario.h"
+
+1562706804 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\noarvoreb.cpp
+	"NoArvoreB.h"
+	"iostream"
+
+1562738119 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\main.cpp
+	<iostream>
+	<iostream>
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	"ArvoreB.h"
+	"ArvoreVP.h"
+	"LeituraArquivo.h"
+	"usuario.h"
+	<random>
+	<Chrono>
+
+1562735272 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\objeto.cpp
+	<iostream>
+	"Objeto.h"
+
+1562735251 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\objeto.h
+
+1562738828 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\arvorevp_adaptativa.cpp
+	"ArvoreVP_adaptativa.h"
+	"Usuario.h"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562738784 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v3.0\arvorevp_adaptativa.h
+	"Objeto.h"
+	"Usuario.h"
+
+1562706804 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\arvoreb.cpp
+	"ArvoreB.h"
+
+1562706804 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\arvoreb.h
+	"NoArvoreB.h"
+
+1562706804 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\noarvoreb.h
+	"Usuario.h"
+
+1562722487 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\usuario.h
+	<vector>
+
+1562722439 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\arvorevp.cpp
+	"ArvoreVP.h"
+	"Usuario.h"
+
+1562722099 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\arvorevp.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562738828 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\arvorevp_adaptativa.cpp
+	"ArvoreVP_adaptativa.h"
+	"Usuario.h"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562738784 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\arvorevp_adaptativa.h
+	"Objeto.h"
+	"Usuario.h"
+
+1562735251 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\objeto.h
+
+1562747530 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\main.cpp
+	<iostream>
+	<iostream>
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	"ArvoreB.h"
+	"ArvoreVP.h"
+	"LeituraArquivo.h"
+	"usuario.h"
+	<random>
+	<Chrono>
+
+1562735662 c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\leituraarquivo.h
+	<string>
+	"Usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562706804 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\noarvoreb.cpp
+	"NoArvoreB.h"
+	"iostream"
+
+1562735272 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\objeto.cpp
+	<iostream>
+	"Objeto.h"
+
+1562706804 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\usuario.cpp
+	"Usuario.h"
+
+1562748354 source:c:\users\luiz\desktop\finalizando_trabalho\leitura_arvore_leitura_funciana_v4.0\leituraarquivo.cpp
+	"LeituraArquivo.h"
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<random>
+	<Chrono>
+	<vector>
+	<algorithm>
+	"usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562863090 source:c:\users\luiz\desktop\trabalho quasee ed2\arvoreb.cpp
+	"ArvoreB.h"
+
+1562859617 c:\users\luiz\desktop\trabalho quasee ed2\arvoreb.h
+	"NoArvoreB.h"
+
+1562860030 c:\users\luiz\desktop\trabalho quasee ed2\noarvoreb.h
+	"Usuario.h"
+
+1562838974 c:\users\luiz\desktop\trabalho quasee ed2\usuario.h
+	<vector>
+
+1562838952 source:c:\users\luiz\desktop\trabalho quasee ed2\arvorehuffman.cpp
+	"ArvoreHuffman.h"
+	"iostream"
+	"HeapMin.h"
+
+1562838954 c:\users\luiz\desktop\trabalho quasee ed2\arvorehuffman.h
+	"HeapMin.h"
+	"NoHeapMin.h"
+	<string.h>
+	<string>
+	<iostream>
+
+1562838954 c:\users\luiz\desktop\trabalho quasee ed2\heapmin.h
+	"NoHeapMin.h"
+
+1562838952 c:\users\luiz\desktop\trabalho quasee ed2\noheapmin.h
+
+1562861598 source:c:\users\luiz\desktop\trabalho quasee ed2\arvorevp.cpp
+	"ArvoreVP.h"
+	"Usuario.h"
+
+1562861002 c:\users\luiz\desktop\trabalho quasee ed2\arvorevp.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562838958 source:c:\users\luiz\desktop\trabalho quasee ed2\arvorevp_adaptativa.cpp
+	"ArvoreVP_adaptativa.h"
+	"Usuario.h"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562838954 c:\users\luiz\desktop\trabalho quasee ed2\arvorevp_adaptativa.h
+	"Objeto.h"
+	"Usuario.h"
+
+1562838972 c:\users\luiz\desktop\trabalho quasee ed2\objeto.h
+
+1562838954 source:c:\users\luiz\desktop\trabalho quasee ed2\heapmin.cpp
+	"HeapMin.h"
+	"iostream"
+
+1562838964 source:c:\users\luiz\desktop\trabalho quasee ed2\leituraarquivo.cpp
+	"LeituraArquivo.h"
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<random>
+	<Chrono>
+	<vector>
+	<algorithm>
+	"usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562838966 c:\users\luiz\desktop\trabalho quasee ed2\leituraarquivo.h
+	<string>
+	"Usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562865412 source:c:\users\luiz\desktop\trabalho quasee ed2\main.cpp
+	<iostream>
+	<iostream>
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<algorithm>
+	"ArvoreB.h"
+	"ArvoreVP.h"
+	"ArvoreHuffman.h"
+	"LeituraArquivo.h"
+	"usuario.h"
+	<random>
+	<Chrono>
+
+1562860088 source:c:\users\luiz\desktop\trabalho quasee ed2\noarvoreb.cpp
+	"NoArvoreB.h"
+	"iostream"
+
+1562838952 source:c:\users\luiz\desktop\trabalho quasee ed2\noheapmin.cpp
+	<iostream>
+	"NoHeapMin.h"
+
+1562838972 source:c:\users\luiz\desktop\trabalho quasee ed2\objeto.cpp
+	<iostream>
+	"Objeto.h"
+
+1562838978 source:c:\users\luiz\desktop\trabalho quasee ed2\usuario.cpp
+	"Usuario.h"
+
+1562863090 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\arvoreb.cpp
+	"ArvoreB.h"
+
+1562859617 c:\users\luiz\desktop\trabalho quasee ed2 - copia\arvoreb.h
+	"NoArvoreB.h"
+
+1562860030 c:\users\luiz\desktop\trabalho quasee ed2 - copia\noarvoreb.h
+	"Usuario.h"
+
+1562838974 c:\users\luiz\desktop\trabalho quasee ed2 - copia\usuario.h
+	<vector>
+
+1562768822 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\arvorehuffman.cpp
+	"ArvoreHuffman.h"
+	"iostream"
+
+1562764616 c:\users\luiz\desktop\trabalho quasee ed2 - copia\arvorehuffman.h
+	"HeapMin.h"
+	"NoHeapMin.h"
+	<string.h>
+	<string>
+	<iostream>
+
+1562764504 c:\users\luiz\desktop\trabalho quasee ed2 - copia\heapmin.h
+	"NoHeapMin.h"
+
+1562455186 c:\users\luiz\desktop\trabalho quasee ed2 - copia\noheapmin.h
+
+1562861598 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\arvorevp.cpp
+	"ArvoreVP.h"
+	"Usuario.h"
+
+1562861002 c:\users\luiz\desktop\trabalho quasee ed2 - copia\arvorevp.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562838958 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\arvorevp_adaptativa.cpp
+	"ArvoreVP_adaptativa.h"
+	"Usuario.h"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562838954 c:\users\luiz\desktop\trabalho quasee ed2 - copia\arvorevp_adaptativa.h
+	"Objeto.h"
+	"Usuario.h"
+
+1562838972 c:\users\luiz\desktop\trabalho quasee ed2 - copia\objeto.h
+
+1562765244 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\heapmin.cpp
+	"HeapMin.h"
+	"iostream"
+
+1562838964 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\leituraarquivo.cpp
+	"LeituraArquivo.h"
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<random>
+	<Chrono>
+	<vector>
+	<algorithm>
+	"usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562838966 c:\users\luiz\desktop\trabalho quasee ed2 - copia\leituraarquivo.h
+	<string>
+	"Usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562868643 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\main.cpp
+	<iostream>
+	<iostream>
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<algorithm>
+	"ArvoreB.h"
+	"ArvoreVP.h"
+	"ArvoreHuffman.h"
+	"LeituraArquivo.h"
+	"usuario.h"
+	<random>
+	<Chrono>
+
+1562860088 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\noarvoreb.cpp
+	"NoArvoreB.h"
+	"iostream"
+
+1562606030 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\noheapmin.cpp
+	<iostream>
+	"NoHeapMin.h"
+
+1562838972 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\objeto.cpp
+	<iostream>
+	"Objeto.h"
+
+1562838978 source:c:\users\luiz\desktop\trabalho quasee ed2 - copia\usuario.cpp
+	"Usuario.h"
+
+1562857884 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\arvoreb.cpp
+	"ArvoreB.h"
+
+1562857886 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\arvoreb.h
+	"NoArvoreB.h"
+
+1562857890 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\noarvoreb.h
+	"Usuario.h"
+
+1562857892 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\usuario.h
+	<vector>
+
+1562857886 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\arvorehuffman.cpp
+	"ArvoreHuffman.h"
+	"iostream"
+
+1562857886 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\arvorehuffman.h
+	"HeapMin.h"
+	"NoHeapMin.h"
+	<string.h>
+	<string>
+	<iostream>
+
+1562857888 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\heapmin.h
+	"NoHeapMin.h"
+
+1562857890 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\noheapmin.h
+
+1562857886 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\arvorevp.cpp
+	"ArvoreVP.h"
+	"Usuario.h"
+
+1562857886 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\arvorevp.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562857886 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\arvorevp_adaptativa.cpp
+	"ArvoreVP_adaptativa.h"
+	"Usuario.h"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562857886 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\arvorevp_adaptativa.h
+	"Objeto.h"
+	"Usuario.h"
+
+1562857890 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\objeto.h
+
+1562857888 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\heapmin.cpp
+	"HeapMin.h"
+	"iostream"
+
+1562857888 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\leituraarquivo.cpp
+	"LeituraArquivo.h"
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<random>
+	<Chrono>
+	<vector>
+	<algorithm>
+	"usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562857888 c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\leituraarquivo.h
+	<string>
+	"Usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562857888 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\main.cpp
+	<iostream>
+	<iostream>
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<algorithm>
+	"ArvoreB.h"
+	"ArvoreVP.h"
+	"ArvoreHuffman.h"
+	"LeituraArquivo.h"
+	"usuario.h"
+	<random>
+	<Chrono>
+
+1562857890 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\noarvoreb.cpp
+	"NoArvoreB.h"
+	"iostream"
+
+1562857888 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\noheapmin.cpp
+	<iostream>
+	"NoHeapMin.h"
+
+1562857890 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\objeto.cpp
+	<iostream>
+	"Objeto.h"
+
+1562857892 source:c:\users\1513 x-mxti\downloads\trabalho quasee ed2 - copia\usuario.cpp
+	"Usuario.h"
+
+1562881964 source:c:\users\1513 x-mxti\downloads\trabalho ed2\arvoreb.cpp
+	"ArvoreB.h"
+
+1562857886 c:\users\1513 x-mxti\downloads\trabalho ed2\arvoreb.h
+	"NoArvoreB.h"
+
+1562857890 c:\users\1513 x-mxti\downloads\trabalho ed2\noarvoreb.h
+	"Usuario.h"
+
+1562857892 c:\users\1513 x-mxti\downloads\trabalho ed2\usuario.h
+	<vector>
+
+1562888749 source:c:\users\1513 x-mxti\downloads\trabalho ed2\arvorehuffman.cpp
+	"ArvoreHuffman.h"
+	"iostream"
+
+1562888749 c:\users\1513 x-mxti\downloads\trabalho ed2\arvorehuffman.h
+	"HeapMin.h"
+	"NoHeapMin.h"
+	<string.h>
+	<string>
+	<iostream>
+
+1562857888 c:\users\1513 x-mxti\downloads\trabalho ed2\heapmin.h
+	"NoHeapMin.h"
+
+1562857890 c:\users\1513 x-mxti\downloads\trabalho ed2\noheapmin.h
+
+1562857886 source:c:\users\1513 x-mxti\downloads\trabalho ed2\arvorevp.cpp
+	"ArvoreVP.h"
+	"Usuario.h"
+
+1562857886 c:\users\1513 x-mxti\downloads\trabalho ed2\arvorevp.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562857886 source:c:\users\1513 x-mxti\downloads\trabalho ed2\arvorevp_adaptativa.cpp
+	"ArvoreVP_adaptativa.h"
+	"Usuario.h"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"string.h"
+	"Usuario.h"
+
+1562857886 c:\users\1513 x-mxti\downloads\trabalho ed2\arvorevp_adaptativa.h
+	"Objeto.h"
+	"Usuario.h"
+
+1562857890 c:\users\1513 x-mxti\downloads\trabalho ed2\objeto.h
+
+1562888749 source:c:\users\1513 x-mxti\downloads\trabalho ed2\heapmin.cpp
+	"HeapMin.h"
+	"iostream"
+
+1562889469 source:c:\users\1513 x-mxti\downloads\trabalho ed2\leituraarquivo.cpp
+	"LeituraArquivo.h"
+	"usuario.h"
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<random>
+	<Chrono>
+	<vector>
+	<algorithm>
+	"usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562857888 c:\users\1513 x-mxti\downloads\trabalho ed2\leituraarquivo.h
+	<string>
+	"Usuario.h"
+	"Objeto.h"
+	"ArvoreVP_adaptativa.h"
+
+1562881964 source:c:\users\1513 x-mxti\downloads\trabalho ed2\noarvoreb.cpp
+	"NoArvoreB.h"
+	"iostream"
+

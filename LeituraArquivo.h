@@ -1,31 +1,24 @@
 #include <string>
 #ifndef TRABALHOEDII_LEITURAARQUIVO_H
 #define TRABALHOEDII_LEITURAARQUIVO_H
-#include "Objeto.h"
+#include "Usuario.h"
+#include"Objeto.h"
+#include"ArvoreVP_adaptativa.h"
 
-#include <fstream>
 
 using namespace std;
 
 class LeituraArquivo {
 public:
     LeituraArquivo();
-    LeituraArquivo(string nomeArquivoEntrada);
     ~LeituraArquivo();
 
-    Objeto* RandomRead(int qntdeLinhas);
-    Objeto Parse(string str);
+    Usuario* RandomRead(int qntdeLinhas, string nomeArquivo, int *indice);
+    void Parse(string str, Usuario* vetor, int *cont, int *indice, ArvoreVP_adaptativa *arv);
 
-    int* LerEntrada(string nomeArquivo, int* tamVet);
+//private:
+//    ArvoreVP_adaptativa arv;
 
-    void SelecionaArquivo(string nomeArquivo);
-    void EscreveDesempenho(string nomeAlgoritmo, int numTrocas, int numComparacoes, double tempoExecucao);
-
-private:
-    const string DIRETORIO = "arquivos/";
-    string nomeArquivoEntrada;
-    ifstream arquivoEntrada;
-    ofstream arquivoSaida;
 };
 
 
